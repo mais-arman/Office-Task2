@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge16</title>
+</head>
+<body>
+<script>
+const apiURL = 'https://jsonplaceholder.typicode.com/posts';
+
+const data = {
+  name: "Mais Arman",
+  email: "maisarman6@gmail.com",
+  age: 21
+};
+
+fetch(apiURL, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json' 
+  },
+  body: JSON.stringify(data) 
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Error' + response.status);
+  }
+  return response.json(); 
+})
+.then(data => {
+  console.log('Success:', data); 
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
+</script>
+</body>
+</html>

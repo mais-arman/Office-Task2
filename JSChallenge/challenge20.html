@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge20</title>
+</head>
+<body>
+<script>
+function fetchJSONData(url) {
+fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error, Status: ${response.status}`);
+        }
+        return response.json(); 
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error.message);
+        document.body.innerHTML += `<p style="color:red;">${error.message}</p>`;
+    });
+}
+
+fetchJSONData('https://jsonplaceholder.typicode.com/users');
+
+fetchJSONData('https://jsonplaceholder.typicode.com/invalidUrl');
+
+</script>
+</body>
+</html>

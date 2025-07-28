@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge6</title>
+</head>
+<body>
+<script>
+function isValidJSON(anyString) {
+try {
+    JSON.parse(anyString);
+return true;  
+    } catch (error) {
+return false; 
+    }
+}
+
+console.log(isValidJSON('{"name":"Mais","age":21}'));  
+console.log(isValidJSON('Invalid'));                       
+
+</script>
+</body>
+</html>

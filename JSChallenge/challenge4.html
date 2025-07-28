@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge4</title>
+</head>
+<body> 
+    
+<script>
+const productJSON = '{"name":"bag","price":130}';
+console.log("JSON Before Update:", productJSON);
+
+const product = JSON.parse(productJSON);
+console.log("Before Update:", product);  
+
+product.price = 170;
+console.log("After Update:", product);
+
+const updateProductJSON = JSON.stringify(product);
+console.log("Updated JSON:", updateProductJSON);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge8</title>
+</head>
+<body>
+    
+<script>
+function fetchUsers() {
+const xhr = new XMLHttpRequest();
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+xhr.open('GET', url, true);
+
+xhr.onload = function () {
+if (xhr.status == 200) {
+    try {
+    const users = JSON.parse(xhr.responseText);
+    users.forEach(user => {
+        console.log(user.name);
+    });
+    } catch (error) {
+    console.error("error:", error);
+    }
+} else {
+    console.error("Failed to fetch data:", xhr.status);
+}
+};
+
+xhr.onerror = function () {
+console.error("Request error");
+};
+
+xhr.send();
+}
+
+fetchUsers();
+
+</script>
+</body>
+</html>

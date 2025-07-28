@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge3</title>
+</head>
+<body>
+    
+<script>
+const user = {
+    name: "Mais",
+    age: 21,
+    email: "maisarman6@gmail.com",
+};
+
+const jsonString = JSON.stringify(user);
+console.log(jsonString);
+
+const userInfo = JSON.parse(jsonString);
+console.log(userInfo.name);
+console.log(userInfo.age);
+console.log(userInfo.email);
+</script> 
+</body>
+</html>

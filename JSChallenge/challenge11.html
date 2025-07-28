@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge11</title>
+</head>
+<body>
+<h2>Users Table</h2>
+<table border="2">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    </tr>
+</thead>
+<tbody id="userTable"></tbody>
+</table>
+
+<script>
+const apiURL = 'https://jsonplaceholder.typicode.com/users';
+const userTable = document.getElementById('userTable');
+
+fetch(apiURL)
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('error');
+    }
+    return response.json();
+    })
+    .then(users => {
+    users.forEach(user => {
+        const tr = document.createElement('tr');
+
+        const name = document.createElement('td');
+        name.textContent = user.name;
+
+        const email = document.createElement('td');
+        email.textContent = user.email;
+
+        tr.appendChild(name);
+        tr.appendChild(email);
+
+        userTable.appendChild(tr);
+    });
+    })
+    .catch(error => {
+    userTable.innerHTML = `<tr><td colspan="2">Failed to fetch data: ${error.message}</td></tr>`;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge12</title>
+</head>
+<body>
+
+<script>
+const xhr = new XMLHttpRequest();
+
+xhr.open("POST", "https://jsonplaceholder.typicode.com/users");
+
+xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+const newUser = {
+name: "Mais Arman",
+email: "maisarman6@gmail.com",
+username: "maisarman6"
+};
+
+xhr.onreadystatechange = function () {
+if (this.readyState === 4 && this.status === 201) {
+console.log("Success");
+console.log(JSON.parse(this.responseText));
+}
+};
+
+xhr.send(JSON.stringify(newUser));
+
+</script>
+
+</body>
+</html>
